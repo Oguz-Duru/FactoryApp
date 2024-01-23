@@ -20,26 +20,31 @@ export default Login = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.backgroundContainer}>
-                <Image source={require('../assets/background.jpg')} style={styles.backgroundImage}></Image>
-            </View>
-            <View style={styles.logoContainer}>
-                <Image source={require('../assets/logo.png')} style={styles.logo}></Image>
-            </View>
             <View style={styles.formContainer}>
+                <Text style={styles.text}>Hello! Login to get started</Text>
                 <View style={styles.form}>
-                    <TextInput placeholder='Email or phone' style={styles.input}
+                    <TextInput placeholder='Name' style={styles.input}
                         value={username}
-                        onChangeText={(text) => setUsername(text)}
-                    ></TextInput>
+                        onChangeText={(text) => setUsername(text)}>
+                    </TextInput>
+
                     <TextInput placeholder='Password' style={styles.input}
                         value={password}
                         onChangeText={(text) => setPassword(text)}></TextInput>
-                    <Button onPress={HomeNavigate} buttonText={'Giriş Yap'} />
+
+                    <Button onPress={HomeNavigate} buttonText={'Login'} />
+                </View>
+                <Text style={{ marginTop: 40 }}>Or Login with</Text>
+                <View style={styles.row}>
+                    <Image style={styles.registerİmage} source={require('../assets/facelogo.png')}></Image>
+                    <Image style={styles.registerİmage} source={require('../assets/googlelogo.png')}></Image>
+                    <Image style={styles.registerİmage} source={require('../assets/applelogo.png')}></Image>
                 </View>
             </View>
+            <View style={styles.bottomTextContainer}>
+                <Text style={styles.bottomText}>Don't have an account? Register Now</Text>
+            </View>
         </SafeAreaView >
-
     )
 }
 const styles = StyleSheet.create({
@@ -48,48 +53,53 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'start'
+        
     },
-    backgroundContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -1,
+    text: {
+        width: '90%',
+        fontWeight: '500',
+        fontSize: 30,
     },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-        width: '100%',
-        height: '100%',
-    },
-    logoContainer: {
-        display: 'flex',
-        alignItems: 'center'
-    },
-    logo: {
-        width: 200,
-        height: 250
-    },
+
     formContainer: {
         width: '100%',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 20
     },
     form: {
-        width: '80%',
+        width: '90%',
         display: 'flex',
         alignItems: 'center'
     },
     input: {
-        width: '90%',
-        padding: 4,
+        width: '100%',
+        padding: 10,
         marginTop: 20,
         margin: 'auto',
-        borderRadius: 10,
+        borderRadius: 8,
         paddingLeft: 20,
         paddingRight: 20,
-        backgroundColor: 'white'
-    }
+        backgroundColor: 'white',
+        borderColor: '#a9a9a9',
+        borderWidth: 1,
+    },
+    registerİmage: {
+        width: 40,
+        height: 40,
+    },
+    row: {
+        marginTop: 20,
+        display: 'flex',
+        justifyContent: 'space-around',
+        width: '100%',
+        flexDirection: 'row'
+    },
+    bottomTextContainer: {
+        position: 'absolute',
+        bottom: 0,
+        marginBottom: 20, // İstediğiniz boşluk miktarına göre ayarlayabilirsiniz
+        width: '100%',
+        alignItems: 'center',
+    },
 }); 
